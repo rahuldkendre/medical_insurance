@@ -18,12 +18,6 @@ def smoker_options():
     med_ins.load_data()
     return jsonify(list(med_ins.column_data['smoker'].keys()))
 
-@app.route("/gender_options")
-def gender_options():
-    df['gender'] = df['gender'].apply(lambda x : x.lower())
-    
-    return jsonify(list(df['gender'].unique()))
-
 @app.route("/region_options")
 def region_option():
     return jsonify(list(df['region'].unique()))
@@ -39,8 +33,9 @@ def prediction():
     children = data['children']
     smoker = data['smoker']
     region = data['region']
+    print("region",region)
+    print("children:",children)
 
-    
     pred_charges = med_ins.get_predicted_charges(age, gender, bmi, children, smoker, region)
     
     print(f"Predicted charges: {pred_charges}")  # Debugging log
