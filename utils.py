@@ -9,7 +9,7 @@ warnings.filterwarnings('ignore')
 class MedicalInsurance():
     def __init__(self):
         pass
-        return ""
+        return 
     
     def load_data(self):
         with open(config.MODEL_FILE_NAME,'rb') as f:
